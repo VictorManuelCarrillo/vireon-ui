@@ -20,9 +20,11 @@
   "devDependencies": {
     "@commitlint/cli": "^19.6.1",
     "@commitlint/config-conventional": "^19.6.0",
+    "@iconify/vue": "^4.3.0",
     "@nuxtjs/tailwindcss": "^6.13.2",
     "bumpp": "^9.9.1",
-    "husky": "^9.1.7"
+    "husky": "^9.1.7",
+    "sass": "^1.85.1"
   },
   "packageManager": "pnpm@10.6.1+sha512.40ee09af407fa9fbb5fbfb8e1cb40fbb74c0af0c3e10e9224d7b53c7658528615b2c92450e74cfad91e3a2dcafe3ce4050d80bda71d757756d2ce2b66213e9a3"
 }
