@@ -1,5 +1,5 @@
 <template>
-  <button :class="buttonClasses" v-bind="$attrs">
+  <button ref="buttonRef" :class="buttonClasses" v-bind="$attrs">
     <slot />
   </button>
 </template>
@@ -18,6 +18,7 @@ interface ButtonProps extends ButtonVariants {
   shape?: "normal" | "rounded" | "pill" | "xl";
   twClass?: string;
   gradient?: boolean | string;
+  ripple?: boolean;
 }
 
 // ✅ Aquí definimos props + defaults
@@ -26,9 +27,10 @@ const props = withDefaults(defineProps<ButtonProps>(), {
   size: "md",
   shape: "normal",
   twClass: "",
+  ripple: true,
   // nota: los boolean props los dejamos vacíos
 });
-
+// ripple
 const resolvedVariant = computed(() => {
   const variants = [
     "outlined",
@@ -49,4 +51,14 @@ const buttonClasses = computed(() => [
   props.twClass,
   props.gradient && `btn--gradient`
   ]);
+
+
+
+
+
+
+
+
+
+ 
 </script>

@@ -1,1 +1,7 @@
-@forward "./components/ui/button/button";
+// Button component
+@forward "./components/ui/button/button.color";
+@forward "./components/ui/button/button.gradient";
+@forward "./components/ui/button/button.shape";
+@forward "./components/ui/button/button.size";
+@forward "./components/ui/button/button.variants";
+@forward "./components/ui/button/button.ripple";

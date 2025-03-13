@@ -1,0 +1,12 @@
+@use "~/assets/sass/abstracts/variables" as *;
+@use "sass:map";
+
+@mixin button-size($size) {
+  $config: map.get($button-sizes, $size);
+  @if $config != null {
+    padding: map-get($config, padding);
+    font-size: map-get($config, font-size);
+  } @else {
+    @warn "Size #{$size} not found in $button-sizes";
+  }
+}
