@@ -1,0 +1,10 @@
+@use "sass:map";
+@use '../../../../variables' as *;
+
+
+@mixin button-color($color-name) {
+  $color: map.get($theme-colors, $color-name);
+  // color: $color;
+  // border-color: $color;
+  fill: $color;
+}

@@ -1,5 +1,5 @@
 <template>
-  <button :class="buttonClasses" v-bind="$attrs">
+  <button ref="buttonRef" :class="buttonClasses" v-bind="$attrs">
     <slot />
   </button>
 </template>
@@ -18,6 +18,7 @@ interface ButtonProps extends ButtonVariants {
   shape?: "normal" | "rounded" | "pill" | "xl";
   twClass?: string;
   gradient?: boolean | string;
+  ripple?: boolean;
 }
 
 // ✅ Aquí definimos props + defaults
@@ -26,8 +27,43 @@ const props = withDefaults(defineProps<ButtonProps>(), {
   size: "md",
   shape: "normal",
   twClass: "",
+  ripple: true,
   // nota: los boolean props los dejamos vacíos
 });
+// ripple
+
+import { onMounted, ref } from 'vue'
+
+const buttonRef = ref<HTMLButtonElement | null>(null)
+
+onMounted(() => {
+  if (!props.ripple || !buttonRef.value) return
+
+  const el = buttonRef.value
+
+  el.addEventListener('click', (e: MouseEvent) => {
+    const ripple = document.createElement('span')
+    ripple.classList.add('ripple')
+
+    const rect = el.getBoundingClientRect()
+    const size = Math.max(rect.width, rect.height)
+    const x = e.clientX - rect.left - size / 2
+    const y = e.clientY - rect.top - size / 2
+
+    ripple.style.width = ripple.style.height = `${size}px`
+    ripple.style.left = `${x}px`
+    ripple.style.top = `${y}px`
+
+    el.appendChild(ripple)
+
+    setTimeout(() => {
+      ripple.remove()
+    }, 600)
+  })
+})
+
+
+
 
 const resolvedVariant = computed(() => {
   const variants = [
@@ -49,4 +85,14 @@ const buttonClasses = computed(() => [
   props.twClass,
   props.gradient && `btn--gradient`
   ]);
+
+
+
+
+
+
+
+
+
+ 
 </script>

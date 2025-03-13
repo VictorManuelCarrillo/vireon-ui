@@ -1,7 +1,10 @@
-// @use "../../utils/mixins" as *;
-// @use "../../utils/variables" as *;
-@use "../../abstracts/variables" as *;
-@use "../../abstracts/mixins/components/ui/button/button" as *;
+@use "~sass/abstracts/mixins/components/ui/button/button.variants" as *;
+@use "~sass/abstracts/mixins/components/ui/button/button.color" as *;
+@use "~sass/abstracts/mixins/components/ui/button/button.shape" as *;
+@use "~sass/abstracts/mixins/components/ui/button/button.size" as *;
+@use "~sass/abstracts/mixins/components/ui/button/button.size" as *;
+@use "~sass/abstracts/mixins/components/ui/button/button.gradient" as *;
+@use "~sass/abstracts/variables" as *;
 
 .btn {
   display: inline-flex;

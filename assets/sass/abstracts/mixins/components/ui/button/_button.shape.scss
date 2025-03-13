@@ -1,0 +1,11 @@
+@use "~/assets/sass/abstracts/variables" as *;
+@use "sass:map";
+
+@mixin button-shape($shape-name) {
+  $radius: map.get($button-shape, $shape-name);
+  @if $radius != null {
+    border-radius: $radius;
+  } @else {
+    @warn "Shape #{$shape-name} not found in $button-shape map.";
+  }
+}
