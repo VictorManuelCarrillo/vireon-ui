@@ -1,6 +1,7 @@
 {
   "name": "nuxt-app",
   "private": true,
+  "version": "0.1.1",
   "type": "module",
   "scripts": {
     "build": "nuxt build",
@@ -8,6 +9,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
+    "release": "bumpp --commit --push --tag",
     "prepare": "husky"
   },
   "dependencies": {
