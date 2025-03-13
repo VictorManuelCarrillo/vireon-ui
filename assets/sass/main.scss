@@ -1,1 +1,6 @@
-*{background: #b6b6b6;}
+@use "./abstracts/variables";
+
+//components
+@use "./abstracts/mixins/index";
+@use "./components/ui/button";
+

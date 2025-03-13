@@ -1,0 +1,37 @@
+$theme-colors: (
+  primary: #099e9e,
+  secondary: #dd7615,
+  success: #00ff0d,
+  warning: #f0d126,
+  error: #d30000,
+  info: #8600d3,
+);
+
+$button-shape: (
+  normal: 0.2rem,
+  rounded: 0.6rem,
+  pill: 5rem,
+);
+
+$button-sizes: (
+  xs: (
+    padding: 0.05rem 0.5rem,
+    font-size: 0.7rem,
+  ),
+  sm: (
+    padding: 0.25rem 0.75rem,
+    font-size: 0.8rem,
+  ),
+  md: (
+    padding: 0.5rem 1rem,
+    font-size: 1rem,
+  ),
+  lg: (
+    padding: 0.75rem 1.25rem,
+    font-size: 1.2rem,
+  ),
+  xl: (
+    padding: 1rem 1.5rem,
+    font-size: 1.5rem,
+  ),
+);

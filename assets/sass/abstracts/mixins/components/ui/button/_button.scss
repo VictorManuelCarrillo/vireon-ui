@@ -1,0 +1,100 @@
+@use "sass:map";
+@use '../../../../variables' as *;
+
+@mixin button-variant($variant, $color-name: 'primary') {
+  $color: map.get($theme-colors, $color-name);
+
+  @if $color == null {
+    @warn "Color `#{$color-name}` not found in $theme-colors.";
+    $color: map.get($theme-colors, primary);
+  }
+
+  @if $variant == filled {
+    background-color: $color;
+    color: inherit;
+  } @else if $variant == outlined {
+    background-color: transparent;
+    outline: 0.15rem solid $color;
+    outline-offset: -0.15rem;
+    color: inherit;
+    &:hover {
+      color: inherit;
+      outline: 0.15rem rgba($color, 0.7);
+      background-color: rgba($color, 0.7);
+    }
+  } @else if $variant == plastic {
+    background-color: $color;
+    color: black;
+    box-shadow: inset rgba(255, 255, 255, 0.336) 0px 0px 2px 2px;
+    &:hover {
+      box-shadow: inset rgba(0, 0, 0, 0.336) 0px 0px 2px 2px;
+    }
+  } @else if $variant == text {
+    background-color: transparent;
+    color: $color;
+    border: none;
+    &:hover {
+      background-color: rgba($color, 0.15);
+    }
+  } @else if $variant == tonal {
+    background-color: rgba($color, 0.25);
+    color: $color;
+    border: none;
+    &:hover {
+      background-color: rgba($color, 0.1);
+    }
+  }
+
+  &:hover {
+    filter: brightness(0.9);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+@mixin button-color($color-name) {
+  $color: map.get($theme-colors, $color-name);
+  // color: $color;
+  // border-color: $color;
+  fill: $color;
+}
+
+@mixin button-shape($shape-name) {
+  $radius: map-get($button-shape, $shape-name);
+  @if $radius != null {
+    border-radius: $radius;
+  } @else {
+    @warn "Shape #{$shape-name} not found in $button-shape map.";
+  }
+}
+
+@mixin button-size($size) {
+  $config: map.get($button-sizes, $size);
+  @if $config != null {
+    padding: map-get($config, padding);
+    font-size: map-get($config, font-size);
+  } @else {
+    @warn "Size #{$size} not found in $button-sizes";
+  }
+}
+
+@mixin button-gradient($variant, $color-name: 'primary') {
+  $color: map.get($theme-colors, $color-name);
+
+  @if $variant == filled {
+    background-image: linear-gradient(150deg, lighten($color, 10%), darken($color, 10%)) !important;
+    color: white;
+  } @else if $variant == outlined {
+    background-image: linear-gradient(135deg, $color, lighten($color, 20%)) !important;
+    color: white;
+  } @else if $variant == plastic {
+    background-image: linear-gradient(to bottom, $color, rgba($color, 0.3));
+    backdrop-filter: blur(10px);
+  } @else if $variant == tonal {
+    background-image: linear-gradient(135deg, rgba($color, 0.2), rgba($color, 0.4));
+    color: white;
+  }
+}
