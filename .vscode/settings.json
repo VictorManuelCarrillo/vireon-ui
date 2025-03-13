@@ -4,5 +4,8 @@
     "commitlint",
     "nuxt",
     "nuxtjs"
+  ],
+  "conventionalCommits.scopes": [
+    "sass"
   ]
 }
